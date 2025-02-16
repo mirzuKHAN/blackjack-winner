@@ -1,24 +1,3 @@
-"""
-Library to do grading of Python programs.
-Usage (see check.py):
-
-    # create a grader
-    grader = Grader("Name of assignment")
-
-    # add a basic test
-    grader.addBasicPart(number, gradeFunc, maxPoints, maxSeconds, description="a basic test")
-
-    # add a hidden test
-    grader.addHiddenPart(number, gradeFunc, maxPoints, maxSeconds, description="a hidden test")
-
-    # add a manual grading part
-    grader.addManualPart(number, gradeFunc, maxPoints, description="written problem")
-
-    # run grading
-    grader.grade()
-"""
-
-
 import argparse
 import datetime, math, pprint, traceback, sys, signal, os, json
 import gc
