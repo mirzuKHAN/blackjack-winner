@@ -5,13 +5,11 @@ grader = checkUtil.Grader()
 player = grader.load('blackjack_player')
 
 ############################################################
-# Problem 1
 
 grader.addManualPart('1a', 3, description="Written question: value iteration in basic MDP")
 grader.addManualPart('1b', 3, description="Written question: optimal policy in basic MDP")
 
 ############################################################
-# Problem 2
 
 class AddNoiseMDP(util.MDP):
     def __init__(self, originalMDP):
@@ -54,7 +52,6 @@ grader.addManualPart('2b', 3, description="Written question: single-pass algorit
 grader.addManualPart('2c', 3, description="Written question: define new MDP solver for discounts < 1")
 
 ############################################################
-# Problem 3
 
 def test3a():
     mdp1 = player.BlackjackMDP(cardValues=[1, 5], multiplicity=2,
@@ -107,7 +104,6 @@ def test3b():
 grader.addBasicPart('3b-basic', test3b, 4, description="Test for peekingMDP().  Ensure that in at least 10% of states, the optimal policy is to peek.")
 
 ############################################################
-# Problem 4
 
 def test4a():
     mdp = util.NumberLineMDP()
@@ -148,10 +144,6 @@ grader.addHiddenPart('4a-hidden', test4aHidden, 3, maxSeconds=3, description="Hi
 
 grader.addManualPart('4b', 4, description="Written question: policy comparison for Q-learning vs. value iteration")
 
-# NOTE: this is not a true "test" for grading purposes -- it's worth zero points.  This function exists to help you
-# as you're working on question 4b; this question requires a written response on the assignment, but you will need
-# to run some code to get the stats that will go into your answer.  Check out the partial implementation of the
-# 'simulate_QL_over_MDP' function in blackjack_player.py to see one place where you might consider printing these stats.
 def run4bHelper():
     player.simulate_QL_over_MDP(player.smallMDP, player.identityFeatureExtractor)
     player.simulate_QL_over_MDP(player.largeMDP, player.identityFeatureExtractor)
@@ -176,8 +168,6 @@ grader.addBasicPart('4c-basic', test4c, 5, maxSeconds=10, description="Basic tes
 
 grader.addManualPart('4d', 4, description="Written question: reward comparison for applying policy to baseline and modified MDP")
 
-# NOTE: as in 4b above, this is not a real test -- just a helper function to run some code
-# to produce stats that will allow you to answer written question 4d.
 def run4dHelper():
     player.compare_changed_MDP(player.originalMDP, player.newThresholdMDP, player.blackjackFeatureExtractor)
 grader.addBasicPart('4d-helper', run4dHelper, 0, maxSeconds=60, description="Helper function to compare rewards when simulating RL over two different MDPs in question 4d.")
